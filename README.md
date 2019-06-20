@@ -1,4 +1,4 @@
-Implemented based on [this guide](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers).
+Implemented using [this guide](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers), which is based on [RFC-6455](https://tools.ietf.org/html/rfc6455).
 
 Echoes every message and sends `Yo` every second. Try this in browser:
 ```javascript
