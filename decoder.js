@@ -1,18 +1,15 @@
 module.exports = function decode(data) {
-  console.log(data);
   let offset;
   let length = data[1] - 0x80;
   switch(length) {
     case 0x7f: {
       offset = 8;
       length = data.readUIntBE(2, 8);
-      console.log(length)
       break;
     }
     case 0x7e: {
       offset = 2;
       length = data.readUIntBE(2, 2);
-      console.log(length)
       break;
     }
     default: offset = 0;

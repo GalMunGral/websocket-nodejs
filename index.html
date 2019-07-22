@@ -1,0 +1,26 @@
+<html>
+<body style="margin-left: 25vw;">
+<script>
+  function log(message, color) {
+    let pre = document.createElement('pre');
+    pre.textContent = message;
+    pre.style.color = color;
+    document.body.prepend(pre);
+  }
+  window.addEventListener('load', () => {
+    var socket = new WebSocket('ws://localhost:8080');
+    
+    socket.onopen = e => {
+      console.log('socket opened', e);
+      window.setInterval(() => {
+        let msg = 'From client: ' + Date();
+        socket.send(msg);
+        log(msg, 'gray');
+      }, 2000);
+    };
+
+    socket.onmessage = msg => log(msg.data, 'black');
+  })
+</script>
+</body>
+</html>
